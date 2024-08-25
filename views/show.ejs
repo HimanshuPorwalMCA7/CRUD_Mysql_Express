@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Page</title>
+</head>
+<body>
+    <% if (message) { %>
+        <p><%= message %></p>
+    <% } %>
+    <h1>Hello, I am Home Page</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th>Address</th>
+                <th>Quantity</th>
+                <th>Date</th>
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <% for(user of data) { %>
+                <tr>
+                    <td><%= user.id %></td>
+                    <td><%= user.productname %></td>
+                    <td><%= user.address %></td>
+                    <td><%= user.quantity %></td>
+                    <td><%= user.date %></td>
+                    <td><form method="get" action="/<%= user.id %>/edit" >
+                        <button>Edit</button>
+                    </form></td>
+                    <td><form method="post" action="/<%= user.id %>/delete" >
+                        <button>Delete</button>
+                    </form></td>
+                </tr>
+            <% }; %>
+        </tbody>
+    </table>
+
+
+    <button><a href="/">Home</a> </button>
+</body>
+</html>
